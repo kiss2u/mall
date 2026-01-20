@@ -35,7 +35,7 @@ public class SmsHomeAdvertiseController {
         return CommonResult.failed();
     }
 
-    @ApiOperation("删除广告")
+    @ApiOperation("批量删除广告")
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult delete(@RequestParam("ids") List<Long> ids) {
@@ -55,7 +55,7 @@ public class SmsHomeAdvertiseController {
         return CommonResult.failed();
     }
 
-    @ApiOperation("获取广告详情")
+    @ApiOperation("根据ID获取广告详情")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<SmsHomeAdvertise> getItem(@PathVariable Long id) {
@@ -63,7 +63,7 @@ public class SmsHomeAdvertiseController {
         return CommonResult.success(advertise);
     }
 
-    @ApiOperation("修改广告")
+    @ApiOperation("根据ID修改广告")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update(@PathVariable Long id, @RequestBody SmsHomeAdvertise advertise) {
@@ -73,7 +73,7 @@ public class SmsHomeAdvertiseController {
         return CommonResult.failed();
     }
 
-    @ApiOperation("分页查询广告")
+    @ApiOperation("分页查询首页广告")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<SmsHomeAdvertise>> list(@RequestParam(value = "name", required = false) String name,
