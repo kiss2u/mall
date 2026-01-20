@@ -25,7 +25,7 @@ public class SmsHomeRecommendSubjectController {
     @Autowired
     private SmsHomeRecommendSubjectService recommendSubjectService;
 
-    @ApiOperation("添加首页专题推荐")
+    @ApiOperation("批量添加首页专题推荐")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create(@RequestBody List<SmsHomeRecommendSubject> homeRecommendSubjectList) {
