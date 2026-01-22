@@ -72,7 +72,7 @@ public class PmsProductCategoryController {
         return CommonResult.success(productCategory);
     }
 
-    @ApiOperation("删除商品分类")
+    @ApiOperation("根据ID删除商品分类")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult delete(@PathVariable Long id) {
@@ -84,7 +84,7 @@ public class PmsProductCategoryController {
         }
     }
 
-    @ApiOperation("修改导航栏显示状态")
+    @ApiOperation("批量修改导航栏显示状态")
     @RequestMapping(value = "/update/navStatus", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateNavStatus(@RequestParam("ids") List<Long> ids, @RequestParam("navStatus") Integer navStatus) {
@@ -96,7 +96,7 @@ public class PmsProductCategoryController {
         }
     }
 
-    @ApiOperation("修改显示状态")
+    @ApiOperation("批量修改显示状态")
     @RequestMapping(value = "/update/showStatus", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateShowStatus(@RequestParam("ids") List<Long> ids, @RequestParam("showStatus") Integer showStatus) {
