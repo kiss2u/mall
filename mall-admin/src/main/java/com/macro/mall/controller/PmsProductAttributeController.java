@@ -29,7 +29,7 @@ public class PmsProductAttributeController {
     @Autowired
     private PmsProductAttributeService productAttributeService;
 
-    @ApiOperation("根据分类查询属性列表或参数列表")
+    @ApiOperation("根据分类ID查询属性列表或参数列表")
     @ApiImplicitParams({@ApiImplicitParam(name = "type", value = "0表示属性，1表示参数", required = true, paramType = "query", dataType = "integer")})
     @RequestMapping(value = "/list/{cid}", method = RequestMethod.GET)
     @ResponseBody
@@ -65,7 +65,7 @@ public class PmsProductAttributeController {
         }
     }
 
-    @ApiOperation("查询单个商品属性")
+    @ApiOperation("根据ID查询商品属性")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<PmsProductAttribute> getItem(@PathVariable Long id) {
@@ -85,7 +85,7 @@ public class PmsProductAttributeController {
         }
     }
 
-    @ApiOperation("根据商品分类的id获取商品属性及属性分类")
+    @ApiOperation("根据商品分类的ID获取商品属性及属性分类ID")
     @RequestMapping(value = "/attrInfo/{productCategoryId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<ProductAttrInfo>> getAttrInfo(@PathVariable Long productCategoryId) {
