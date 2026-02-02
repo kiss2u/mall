@@ -48,7 +48,7 @@ public class PmsProductController {
         return CommonResult.success(productResult);
     }
 
-    @ApiOperation("更新商品")
+    @ApiOperation("根据ID修改商品信息")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update(@PathVariable Long id, @RequestBody PmsProductParam productParam) {
