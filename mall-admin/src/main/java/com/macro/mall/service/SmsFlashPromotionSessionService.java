@@ -31,12 +31,12 @@ public interface SmsFlashPromotionSessionService {
     int delete(Long id);
 
     /**
-     * 获取场次详情
+     * 获取详情
      */
     SmsFlashPromotionSession getItem(Long id);
 
     /**
-     * 获取全部场次列表
+     * 根据启用状态获取场次列表
      */
     List<SmsFlashPromotionSession> list();
 

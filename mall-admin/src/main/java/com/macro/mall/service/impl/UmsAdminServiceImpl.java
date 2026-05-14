@@ -32,7 +32,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -62,7 +62,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         //先从缓存中获取数据
         UmsAdmin admin = getCacheService().getAdmin(username);
         if (admin != null) return admin;
-        //缓存中没有再从数据库中获取
+        //缓存中没有从数据库中获取
         UmsAdminExample example = new UmsAdminExample();
         example.createCriteria().andUsernameEqualTo(username);
         List<UmsAdmin> adminList = adminMapper.selectByExample(example);
@@ -189,8 +189,8 @@ public class UmsAdminServiceImpl implements UmsAdminService {
 
     @Override
     public int delete(Long id) {
-        getCacheService().delAdmin(id);
         int count = adminMapper.deleteByPrimaryKey(id);
+        getCacheService().delAdmin(id);
         getCacheService().delResourceList(id);
         return count;
     }
